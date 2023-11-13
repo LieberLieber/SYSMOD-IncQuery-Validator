@@ -27,7 +27,7 @@ jobs:
       - name: Run validation
         uses: IncQueryLabs/incquery-validator-for-ea-action@v1
         with:
-          model_file_path: SYSMOD-ForestFireDetectionSystem
+          model_file_path: SYSMOD-ForestFireDetectionSystem.qeax
           analysis_suite: SYSMOD
           incquery_username: "${{ secrets.incquery_username }}"
           incquery_password: "${{ secrets.incquery_password }}"
