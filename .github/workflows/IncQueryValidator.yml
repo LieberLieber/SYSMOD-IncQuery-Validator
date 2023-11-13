@@ -1,0 +1,36 @@
+# Copyright (c) IncQuery Labs cPlc.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+name: Execute IncQuery Validator on Model.qeax
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  IncQueryValidatorForEA:
+    defaults:
+      run:
+        shell: pwsh
+    runs-on: [self-hosted, pcs]
+    timeout-minutes: 20
+    steps:
+      - name: Checkout Git repository
+        uses: actions/checkout@v3
+        with:
+          lfs: true
+        
+      - name: Run validation
+        uses: IncQueryLabs/incquery-validator-for-ea-action@v1
+        with:
+          model_file_path: SYSMOD-ForestFireDetectionSystem
+          analysis_suite: SYSMOD
+          incquery_username: "${{ secrets.incquery_username }}"
+          incquery_password: "${{ secrets.incquery_password }}"
+          license: "${{ secrets.incquery_ea_validator_license }}"
+          comment_on_pr: true
+          fail_on: error
