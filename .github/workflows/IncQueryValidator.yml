@@ -16,7 +16,7 @@ jobs:
     defaults:
       run:
         shell: pwsh
-    runs-on: [self-hosted, pcs]
+    runs-on: [self-hosted, public, validator]
     timeout-minutes: 20
     steps:
       - name: Checkout Git repository
