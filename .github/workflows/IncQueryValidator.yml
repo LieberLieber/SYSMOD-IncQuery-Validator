@@ -3,7 +3,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-name: Execute IncQuery Validator on Model.qeax
+name: Execute IncQuery Validator on SYSMOD-ForestFireDetectionSystem.qeax
 
 on:
   pull_request:
@@ -27,7 +27,7 @@ jobs:
       - name: Run validation
         uses: IncQueryLabs/incquery-validator-for-ea-action@v1
         with:
-          model_file_path: SYSMOD-ForestFireDetectionSystem
+          model_file_path: SYSMOD-ForestFireDetectionSystem.qeax
           analysis_suite: SYSMOD
           incquery_username: "${{ secrets.incquery_username }}"
           incquery_password: "${{ secrets.incquery_password }}"
