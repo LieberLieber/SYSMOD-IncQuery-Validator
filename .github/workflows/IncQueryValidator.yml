@@ -25,7 +25,7 @@ jobs:
           lfs: true
         
       - name: Run validation
-        uses: IncQueryLabs/incquery-validator-for-ea-action@v1
+        uses: IncQueryLabs/incquery-validator-for-ea-action@2023.3.0
         with:
           model_file_path: SYSMOD-ForestFireDetectionSystem
           analysis_suite: SYSMOD
